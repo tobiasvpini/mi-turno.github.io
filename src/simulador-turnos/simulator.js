@@ -44,7 +44,7 @@ const startSimulation = () => {
         }
     }
 
-    const setTimer = () => Math.random() * 4000
+    const setTimer = () => Math.random() *  6000
 
     const randomTurns = givenTurns.map(() => spinWheel(Object.values(typesOfTurn)))
     

@@ -1,6 +1,6 @@
 <template>
     <MyTurnComponent :mine="mine"/>
-    <CurrentsTurnsComponent :orderOfTurns="orderOfTurns"/>
+    <CurrentsTurnsComponent :orderOfTurns="orderOfTurns" :mine="mine"/>
 </template>
 
 <script>
