@@ -28,3 +28,7 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+*.pem
+.gitignore
+package-lock.json

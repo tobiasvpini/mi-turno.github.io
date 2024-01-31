@@ -14,6 +14,7 @@
 <script>
 import { languageStore } from '@/store/store'
 import { mapState } from 'pinia'
+import axios from "../../api/axios";
 
 export default {
     name: 'Currents-Turns-Component',    
@@ -40,13 +41,11 @@ export default {
             handler(val){
                 this.activeItems = val;
                 this.updateActiveItems();
-                // this.startTurns(this.activeItems.slice(this.currentIndex, this.currentIndex + 5));
             }
         },
     },
     methods: {
         updateActiveItems() {
-            let processedItems = [];
             let promiseChain = Promise.resolve();
             this.activeItems.forEach((item) => {
                 promiseChain = promiseChain.then(() => {
@@ -54,48 +53,16 @@ export default {
                         setTimeout(() => {
                             let index = this.activeItems.indexOf(item);
                             this.activeItems.splice(index, 1);
-                            processedItems.push(item);
-                            let remainingTurns = this.activeItems.filter(i => processedItems.every(el => el.id !== i.id));
-                            if (remainingTurns.length > 0) {
-                                this.$nextTick(() => {
-                                    this.currentIndex = this.currentIndex + 1
-                                });                            }
-                            console.log(`turno: ${item.id} ya atendido` );
+                            if(this.activeItems.map(({ id }) => id).indexOf(this.mine.id) === 7){
+                                axios.get('/sms').then(res => {
+                                    console.log(res);
+                                })
+                            }
                             resolve();
                         }, item.timer);
                     });
                 });
             });
-
-        },
-        processTurn(turn, idx) {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    let index = this.activeItems.indexOf(turn);
-                    let processedItems = [];
-                    this.activeItems.splice(index, 1);
-                    processedItems.push(turn);
-                    let remainingTurns = this.activeItems.filter(i => processedItems.every(el => el.id !== i.id));
-                    if (remainingTurns.length > 0) {
-                        this.currentIndex = this.currentIndex + 1
-                    }
-                    console.log(`turno: ${turn.id} ya atendido` );
-                    resolve();
-                }, turn.timer);
-            });
-        },
-        startTurns(turns) {
-            let activePromises = [];
-
-            turns.forEach((turn, index) => {
-                if (activePromises.length < 5) {
-                    activePromises.push(this.processTurn(turn, index));
-                } else {
-                    activePromises[0] = activePromises[0].then(() => this.processTurn(turn, index));
-                }
-            });
-
-            return Promise.all(activePromises);
         }
     }
 

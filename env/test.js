@@ -1,0 +1,1 @@
+export default { env: "test", baseUrl: "192.168.1.226:3010" }

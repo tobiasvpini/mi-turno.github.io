@@ -1,0 +1,1 @@
+export default { env: "development", baseUrl: 'localhost:3010' }

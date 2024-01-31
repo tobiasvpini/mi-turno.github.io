@@ -12,6 +12,9 @@ export default {
         CompanyDataComponent,
         TurnsComponent,
         GratitudeComponent
+    },
+    beforeCreate() {
+      this.$OneSignal.User.PushSubscription.optIn();
     }
 }
 </script>
