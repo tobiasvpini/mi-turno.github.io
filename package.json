@@ -16,7 +16,9 @@
     "https": "^1.0.0",
     "moment": "^2.30.1",
     "pinia": "^2.1.7",
-    "vue": "^3.3.11"
+    "qrcodejs": "^1.0.0",
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^1.1.0",

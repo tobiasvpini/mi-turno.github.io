@@ -1,30 +1,36 @@
 <script>
-import CompanyDataComponent from './components/CompanyDataComponent.vue';
-import Header from "./views/Header.vue";
-import TurnsComponent from './components/turnsComponents/TurnsComponent.vue';
-import GratitudeComponent from './components/GratitudeComponent.vue';
-import './assets/styles.css'
+import HomeView from './views/HomeView.vue';
+import AddToHomeScreen from './components/AddToHomeScreen.vue';
 
 export default {
     name: 'App',
-    components: {
-        HeaderComponent: Header,
-        CompanyDataComponent,
-        TurnsComponent,
-        GratitudeComponent
+    data() {
+      return {
+        isVisible: true    
+      }
     },
-    beforeCreate() {
-      this.$OneSignal.User.PushSubscription.optIn();
+    components: {
+        HomeView,
+        AddToHomeScreen
+    },
+    created() {
+      if (Notification.permission === 'granted') {
+        this.$OneSignal.User.PushSubscription.optIn();
+      } else if (Notification.permission !== 'denied') {
+        this.$OneSignal.Notifications.requestPermission().then(permission => {
+          if (permission) {
+            this.$OneSignal.User.PushSubscription.optIn();
+          }
+        });
+      }
     }
 }
 </script>
 
 <template>
   <div class="h-screen">
-    <HeaderComponent />
-    <CompanyDataComponent />
-    <TurnsComponent />
-    <GratitudeComponent />
+    <AddToHomeScreen v-if="isVisible" :class="isVisible ? 'w-full border-2 border-x-0 border-black text-center p-2 leading-7 absolute bottom-0 z-50 bg-white' : ''" :isVisible="isVisible"/>
+    <HomeView />
   </div>
 </template>
 
@@ -33,7 +39,7 @@ body,
 html {
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 * {
   box-sizing: border-box;
