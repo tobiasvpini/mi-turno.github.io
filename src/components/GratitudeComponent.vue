@@ -1,5 +1,5 @@
 <template>
-    <p class="glassmorphism text-center container-sm mt-4 p-4 columns-sm max-w-sm mx-auto rounded-b-md overflow-hidden tracking-tight text-gray-500 md:text-lg font-sans">
+    <p class="text-center container-sm mt-4 p-4 columns-sm max-w-sm mx-auto rounded-b-md overflow-hidden tracking-tight text-gray-500 md:text-lg font-sans">
         {{ textContent[lang][0] }}
         <br> <strong>{{ textContent[lang][1] }}</strong>
     </p>
