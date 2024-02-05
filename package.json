@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://tobiasvpini.github.io/mi-turno.github.io/",
   "scripts": {
     "dev": "vite",
     "dev-host": "vite --host",
