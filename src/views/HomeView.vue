@@ -13,9 +13,9 @@ export default {
         TurnsComponent,
         GratitudeComponent
     },
-    beforeCreate() {
-      this.$OneSignal.User.PushSubscription.optIn();
-    }
+    // beforeCreate() {
+    //   this.$OneSignal.User.PushSubscription.optIn();
+    // }
 }
 </script>
 
