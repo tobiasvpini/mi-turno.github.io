@@ -3,7 +3,7 @@ import Home from "../views/HomeView.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/mi-turno.github.io/",
     name: "Home",
     component: Home,
   },
