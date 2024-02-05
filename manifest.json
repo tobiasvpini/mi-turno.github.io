@@ -1,6 +1,6 @@
 {   
     "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-    "display": "fullscreen",
+    "display": "standalone",
     "start_url": "/",
     "name": "Mi-turno manifest JSON",
     "short_name": "Mi-turno"
