@@ -7,7 +7,6 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/mi-turno.github.io/',
   plugins: [
     vue(),
     tailwindcss(),
