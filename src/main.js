@@ -18,7 +18,7 @@ app.use(OneSignalVuePlugin, {
     },
     allowLocalhostAsSecureOrigin: true,
     serviceWorkerParam: { scope: "/" },
-    serviceWorkerPath: "/public/OneSignalSDKWorker.js"
+    serviceWorkerPath: "/push/onesignal/OneSignalSDKWorker.js"
 })
 
 app.mount("#app");
