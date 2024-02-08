@@ -14,7 +14,7 @@
 <script>
 import { languageStore } from '@/store/store'
 import { mapState } from 'pinia'
-// import axios from "../../api/axios";
+import axios from "../../api/axios";
 
 export default {
     name: 'Currents-Turns-Component',    
@@ -54,7 +54,10 @@ export default {
                             let index = this.activeItems.indexOf(item);
                             this.activeItems.splice(index, 1);
                             if(this.activeItems.map(({ id }) => id).indexOf(this.mine.id) === 7){
-                                this.$OneSignal.Notifications.setDefaultTitle('Falta poco para tu turno!')
+                                axios.post('/send-notification', { 
+                                    appId: this.$OneSignal.appId,
+                                    message: 'Pronto es tu turno, ve acercandote a nuestra tienda!'  
+                                });
                             }
                             resolve();
                         }, item.timer);
@@ -62,9 +65,6 @@ export default {
                 });
             });
         }
-    },
-    created() {
-        console.log(this.$OneSignal)
     }
 }
 </script>
