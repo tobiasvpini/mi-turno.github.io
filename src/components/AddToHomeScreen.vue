@@ -23,7 +23,7 @@
       It's easy, just tap 
       <img class="inline mx-1" :src="`data:image/png;base64,${iOSShareBase64}`"> 
       and then "Add to Home Screen". 
-      <img class="absolute -left-1 -top-1" id="close" @click="closeClick" :src="`data:image/png;base64,${closeBase64}`">
+      <img class="h-6 absolute left-0 top-0" id="close" @click="closeClick" :src="`data:image/png;base64,${closeBase64}`">
     </p>
   </section>
 </template>
