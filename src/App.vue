@@ -25,17 +25,17 @@ export default {
         HomeView,
         AddToHomeScreen
     },
-    // created() {
-    //   if (Notification.permission === 'granted') {
-    //     this.$OneSignal.User.PushSubscription.optIn();
-    //   } else if (Notification.permission !== 'denied') {
-    //     this.$OneSignal.Notifications.requestPermission().then(permission => {
-    //       if (permission) {
-    //         this.$OneSignal.User.PushSubscription.optIn();
-    //       }
-    //     });
-    //   }
-    // }
+    created() {
+      if (Notification.permission === 'granted') {
+        this.$OneSignal.User.PushSubscription.optIn();
+      } else if (Notification.permission !== 'denied') {
+        this.$OneSignal.Notifications.requestPermission().then(permission => {
+          if (permission) {
+            this.$OneSignal.User.PushSubscription.optIn();
+          }
+        });
+      }
+    }
 }
 </script>
 
