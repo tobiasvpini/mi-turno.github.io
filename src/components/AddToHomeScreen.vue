@@ -1,11 +1,31 @@
 <template>
+  <section :class="isVisible ? `
+    w-10/12
+    mx-8
+    mt-16
+    rounded-lg
+    top-1/4
+    border-2 
+    border-orange-100 
+    text-sm 
+    font-semibold 
+    drop-shadow-xl
+    transition-shadow
+    p-4
+    text-center
+    container
+    absolute
+    bg-orange-400
+    bg-opacity-95 
+  ` : ''" >
     <p v-if="display" id="install" class="leading-5">
-        Install this web app on your mobile for the best experience.
-        It's easy, just tap 
-        <img class="inline mx-1" :src="`data:image/png;base64,${iOSShareBase64}`"> 
-        and then "Add to Home Screen". 
-        <img class="absolute -left-3 -top-4" id="close" @click="closeClick" :src="`data:image/png;base64,${closeBase64}`">
+      Install this web app on your mobile for the best experience.
+      It's easy, just tap 
+      <img class="inline mx-1" :src="`data:image/png;base64,${iOSShareBase64}`"> 
+      and then "Add to Home Screen". 
+      <img class="absolute -left-1 -top-1" id="close" @click="closeClick" :src="`data:image/png;base64,${closeBase64}`">
     </p>
+  </section>
 </template>
 
 <script>
