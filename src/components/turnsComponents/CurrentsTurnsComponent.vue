@@ -54,10 +54,7 @@ export default {
                             let index = this.activeItems.indexOf(item);
                             this.activeItems.splice(index, 1);
                             if(this.activeItems.map(({ id }) => id).indexOf(this.mine.id) === 7){
-                                // axios.get('/sms').then(res => {
-                                //     console.log(res);
-                                // })
-                                console.log('casi es tu turno')
+
                             }
                             resolve();
                         }, item.timer);
@@ -65,8 +62,9 @@ export default {
                 });
             });
         }
+    },
+    created() {
+        console.log(this.$OneSignal)
     }
-
-
 }
 </script>
