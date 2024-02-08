@@ -1,7 +1,7 @@
-import envConfig from "./env.js"
-const baseUrl = envConfig.baseUrl;
+// import envConfig from "./env.js"
+// const baseUrl = envConfig.baseUrl;
 
 export default {
-    baseUrl: `https://${baseUrl}`,
+    baseUrl: `https://mi-turno-backend.vercel.app/`,
     timeout: 60000
 }
