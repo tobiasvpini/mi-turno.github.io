@@ -16,7 +16,7 @@
     container
     absolute
     bg-orange-400
-    bg-opacity-95 
+    bg-opacity-95
   ` : ''" >
     <p v-if="display" id="install" class="leading-5">
       {{ textContent[lang][0] }}
