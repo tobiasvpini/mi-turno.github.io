@@ -86,6 +86,9 @@ export default {
   },
   beforeUnmount() {
     this.disconnectedCallback()
+  },
+  created(){
+    console.log(this.$OneSignal.Notifications.permission)
   }
 }
 
