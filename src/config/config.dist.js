@@ -8,5 +8,5 @@ const urls = {
 
 export default {
     baseURL: urls[packageJson.name].baseURL,
-    timeout: 10000
+    timeout: 60000
 }
